@@ -5,3 +5,11 @@
     --hovercolor:rgb(0, 102, 128);
     --darkMaincolor: #50fa7b;
 }
+
+svg {
+    max-height: 1500px !important;
+}
+
+.soc > svg {
+    max-height: 15px !important;
+}
