@@ -1,15 +1,23 @@
----
-title: TITLE
----
-
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "css.njk" %}
     <title>{{ title }}</title>
 </head>
 <body>
-    {{ content | safe }}
+
+    <main>
+        {% include "header.njk" %}
+        {{ content | safe }}
+
+        <p>
+            Tags:
+            {% for tag in tags | noposts %}
+                <a href="/tags/{{tag}}/">{{ tag }}</a>
+            {% endfor %}
+        </p>
+    </main>
 </body>
 </html>

@@ -1,0 +1,36 @@
+---
+pagination:
+    data: collections
+    size: 1
+    alias: tag
+    filter:
+      - post
+      - all
+permalink: /tags/{{tag}}/
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "css.njk" %}
+    <title>{{ title }}</title>
+</head>
+<body>
+
+    <main>
+        {% include "header.njk" %}
+
+        <h2>Tagged "{{ tag }}"</h2>
+
+        <ol>
+            {% set taglist = collections[tag] %}
+            {% for post in taglist | reverse | noposts %}
+                <li><a href="{{post.url | url}}">{{post.data.title}}</a></li>
+            {% endfor %}
+        </ol>
+    </main>
+
+</body>
+</html>

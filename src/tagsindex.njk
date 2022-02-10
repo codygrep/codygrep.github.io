@@ -1,9 +1,12 @@
 ---
-title: Posts
 pagination:
-    data: collections.post
-    size: 6
-    alias: posts
+    data: collections
+    size: 99
+    alias: tag
+    filter:
+      - post
+      - all
+permalink: /tags/
 ---
 
 <!doctype html>
@@ -12,18 +15,19 @@ pagination:
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% include "css.njk" %}
-    <title>{{ title }}</title>
+    <title>Tags</title>
 </head>
 <body>
 
     <main>
         {% include "header.njk" %}
 
-        <h2>Recent Posts:</h2>
+        <h2>Tags</h2>
+
         <ol>
-        {% for post in posts %}
-            <li><a href="{{ post.url | url}}">{{post.data.title}}</a> <i>({{post.date | postdate}})</i></li>
-        {% endfor %}
+            {% for tag, x in collections | nopostsobj %}
+                <li><a href="/tags/{{tag}}/">{{tag}}</a></li>
+            {% endfor %}
         </ol>
     </main>
 
