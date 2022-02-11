@@ -1,0 +1,31 @@
+---
+title: Posts
+pagination:
+    data: collections.post
+    size: 6
+    alias: posts
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "css.njk" %}
+    <title>{{ title }}</title>
+</head>
+<body>
+
+    <main>
+        {% include "header.njk" %}
+
+        <h2>Recent Posts:</h2>
+        <ul>
+        {% for post in posts %}
+            <li>{{post.date | postdate}} - <a href="{{ post.url | url}}">{{post.data.title}}</a></li>
+        {% endfor %}
+        </ul>
+    </main>
+
+</body>
+</html>

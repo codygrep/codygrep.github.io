@@ -1,5 +1,9 @@
 module.exports = function (config) {
 
+    config.addPassthroughCopy({ "src/favicon": "/" });
+
+    config.addPassthroughCopy({ "src/img": "/img" });
+
     config.addFilter("noposts", function (values) {
         return values.filter(v => v != "post");
     });
@@ -15,7 +19,7 @@ module.exports = function (config) {
     });
 
     config.addFilter("postdate", (dateObj) => {
-        return new Date(dateObj).toDateString();
+        return new Date(dateObj).toISOString().slice(0, 10);
     });
 
     return {

@@ -1,9 +1,5 @@
 ---
 title: Posts
-pagination:
-    data: collections.post
-    size: 6
-    alias: posts
 ---
 
 <!doctype html>
@@ -19,12 +15,24 @@ pagination:
     <main>
         {% include "header.njk" %}
 
-        <h2>Recent Posts:</h2>
-        <ol>
-        {% for post in posts %}
-            <li><a href="{{ post.url | url}}">{{post.data.title}}</a> <i>({{post.date | postdate}})</i></li>
-        {% endfor %}
-        </ol>
+        <br />
+        Professional things:
+        <ul>
+            <li>10+ years of experience in software development</li>
+            <li>C# / TypeScript / React(JS|Native) / SQL</li>
+        </ul>
+
+        Other interests:
+        <ul>
+            <li>Game development</li>
+            <li>DIY electronics / PCB design</li>
+        </ul>
+
+        Find me on:
+        <ul>
+            <li><a href="https://twitter.com/codygrep" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            <li><a href="https://github.com/codygrep" target="_blank" rel="noopener noreferrer">Github</a></li>
+        </ul>
     </main>
 
 </body>
