@@ -1,6 +1,6 @@
 ---
 title: Devlog 2022-02-10
-date: "2022-02-10T17:14 -05:00"
+date: "2022-02-10T17:14"
 tags:
     - devlog
     - other
